@@ -1,0 +1,67 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    background-color: ivory;
+    margin-bottom: 60px;
+    font-family: 'Playfair Display', serif;
+}
+
+.header {
+    margin-right: auto;
+    margin-left: auto;
+    background-color: aquamarine;
+    padding: 10px 20px 10px 20px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.container-photo1 {
+    margin-top:50px;
+    margin-bottom:50px;
+}
+
+.container-photo {
+    border:1px solid black;
+    height:200px;
+    width:300px;
+    margin:10px auto 10px auto;
+    border-radius:5px;
+}
+
+.label-photo {
+
+}
+
+.container-main {
+    padding-top: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 50%;
+    background-color: white;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.5);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.navbar a {
+    text-decoration:none;
+    color:black;
+    font-size:20px;
+}
+
+.navbar .bi {
+    font-size:30px;
+}

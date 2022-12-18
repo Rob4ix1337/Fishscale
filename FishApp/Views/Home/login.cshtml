@@ -1,0 +1,149 @@
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Icon css -->
+
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <!-- Css -->
+
+    <link rel="stylesheet" href="~/css/login.css">
+
+    <title>Login</title>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="forms">
+
+            <!-- Login -->
+            <div class="form login">
+                <span class="title">Pieslēgties</span>
+
+                <form asp-controller="Home" asp-action="Login">
+                    <div class="input-field">
+                        <input type="text" id="username" required placeholder="Lietotājvārds">
+                        <i class="uil uil-user icons"></i>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" class="password" required placeholder="Parole">
+                        <i class="uil uil-padlock icons"></i>
+                        <i class="uil uil-shield-slash parole"></i>
+                    </div>
+
+                    <div class="check">
+                        <div class="checkBoxLogin">
+                            <input type="checkbox" id="loginCheckbox">
+                            <label for="loginCheckbox" class="text">Atcerēties mani</label>
+                        </div>
+
+                        <a href="#" class="text">Aizmirsi paroli?</a>
+                    </div>
+
+                    <div class="input-field button" >
+                        <input type="submit"  value="Ienākt">
+                    </div>
+                </form>
+
+                <div class="regristracija">
+                    <span class="text">Vēlies piebiedroties?
+                        <a href="#" class="text signup-link">Reģistrēties</a>
+                    </span>
+                </div>
+
+            </div>
+
+
+            <!-- Reģistrācija -->
+            <div class="form signup">
+                <span class="title">Reģistrācija</span>
+
+                <form action="#">
+                    <div class="input-field">
+                        <input type="text"  required placeholder="Ievadi savu vārdu">
+                        <i class="uil uil-user-plus"></i>
+                    </div>
+                    <div class="input-field">
+                        <input type="text" id="username" required placeholder="Lietotājvārds">
+                        <i class="uil uil-user icons"></i>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" class="password" required placeholder="Izveido savu paroli">
+                        <i class="uil uil-padlock icons"></i>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" class="password" required placeholder="Apstiprini savu paroli">
+                        <i class="uil uil-padlock icons"></i>
+                        <i class="uil uil-shield-slash parole"></i>
+                    </div>
+
+                    <div class="check">
+                        <div class="checkBoxLogin">
+                            <input type="checkbox" id="loginCheckbox">
+                            <label for="loginCheckbox" class="text">Atcerēties mani</label>
+                        </div>
+
+                        <a href="#" class="text">Aizmirsi paroli?</a>
+                    </div>
+
+                    <div class="input-field button" >
+                        <input type="button" id="button" value="Ienākt">
+                    </div>
+                </form>
+
+                <div class="regristracija">
+                    <span class="text">Vēlies piebiedroties?
+                        <a href="#" class="text login-link">Pieslēgties</a>
+                    </span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        const container = document.querySelector(".container");
+        const parole = document.querySelectorAll(".parole");
+        const passwordFields = document.querySelectorAll(".password");
+        const registracija = document.querySelector(".signup-link");
+        const login = document.querySelector(".login-link");
+
+                parole.forEach(securityIcon => {
+                    securityIcon.addEventListener("click", ()=>{
+                        passwordFields.forEach(paroleField => {
+                            if(paroleField.type === "password"){
+                                paroleField.type = "text";
+                                
+                                parole.forEach(bilde =>{
+                                    bilde.classList.replace("uil-shield-slash", "uil-shield")
+                                })
+                            }
+                            else{
+                                paroleField.type = "password";
+                                parole.forEach(bilde =>{
+                                    bilde.classList.replace("uil-shield", "uil-shield-slash")
+                                })
+                            }
+                        });
+                    })
+                })
+
+        registracija.addEventListener("click",()=>{
+            container.classList.add("active");
+        });
+
+        login.addEventListener("click", ()=>{
+            container.classList.remove("active");
+        });
+    </script>
+</body>
+</html>
